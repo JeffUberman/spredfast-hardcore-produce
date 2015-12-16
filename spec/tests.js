@@ -17,7 +17,7 @@ describe("Hardcore Produce Unit Tests", function(){
   });
 
   it("can get a poll with both produce types", function(done){
-    $.when(extremeProduce._getRecentPoll(function(data){return data}))
+    $.when(extremeProduce._getRecentPoll(function(data){return data;}))
       .done(function(data){
         testResults = data;
         expect(data).to.have.length(20);
@@ -33,7 +33,7 @@ describe("Hardcore Produce Unit Tests", function(){
     });
   });
 
-    it("can get order historical results to create a leaderboard", function(done){
+  it("can get order historical results to create a leaderboard", function(done){
   $.when(extremeProduce._makeLeaderboard(testResults))
     .done(function(data){
       assert(data[0].count < data[1].count);

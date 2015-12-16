@@ -37,7 +37,7 @@ var extremeProduce = (function(){
         this._getRecentPoll(function(results){
           //check to see if poll results have been previous cached, if not do so
           if(!resultsCache){
-            resultsCache = results
+            resultsCache = results;
           }
           //if so, update count with new poll results
           else{
@@ -89,7 +89,7 @@ var extremeProduce = (function(){
         return self._updateDOM(leaderboard);
       });
     }
-  }  
+  };  
 }(jQuery));
 
 //initialize leaderboard on page load
