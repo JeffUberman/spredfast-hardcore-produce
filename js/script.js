@@ -82,7 +82,6 @@ var extremeProduce = (function(){
       $.when(this._getCurrentCounts())
       //generate leaderboard
       .then(function(counts){
-        console.log("this" + this)
         return self._makeLeaderboard(counts);
       })
       //updateDom
@@ -91,4 +90,14 @@ var extremeProduce = (function(){
       });
     }
   }  
-}(jQuery));  
+}(jQuery));
+
+//initialize leaderboard on page load
+$(document).ready(function(){
+  extremeProduce.render();
+
+  //set interval to refresh leaderboard with new results
+  var interval = setInterval(function(){
+    extremeProduce.render();
+  }, 15000);
+});  
