@@ -1,4 +1,5 @@
 var expect = chai.expect,
+    assert = chai.assert,
     testResults;
 
 describe("Hardcore Produce Unit Tests", function(){
@@ -24,10 +25,18 @@ describe("Hardcore Produce Unit Tests", function(){
       });
   });
 
-  it("can get add a new poll's results to historial resuls", function(done){
+  it("can get add a new poll's results to historial results", function(done){
   $.when(extremeProduce._getCurrentCounts())
     .done(function(data){
       expect(data[0].count).to.not.equal(testResults[0].count);
+      done();
+    });
+  });
+
+    it("can get order historical results to create a leaderboard", function(done){
+  $.when(extremeProduce._makeLeaderboard(testResults))
+    .done(function(data){
+      assert(data[0].count < data[1].count);
       done();
     });
   });

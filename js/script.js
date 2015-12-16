@@ -52,6 +52,16 @@ var extremeProduce = (function(){
       catch(error){
         console.log("Unable to get current tally: " + error);
       }
+    },
+
+    //create a leaderboard of ordered counts/mentions
+    _makeLeaderboard : function(cachedResults){
+    //clone cachedResults since sort is destructive
+    var tempArr = cachedResults.slice(0);
+    //sort cached array
+    return tempArr.sort(function(a, b){
+      return a.count - b.count;
+      });
     }
   }  
 }(jQuery));  
