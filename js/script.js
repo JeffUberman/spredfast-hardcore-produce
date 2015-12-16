@@ -1,6 +1,6 @@
 var extremeProduce = (function(){
-  var PollerInstance = new spredfast.Poller();
-  var resultsCache;
+  var PollerInstance = new spredfast.Poller(),
+      resultsCache;
 
   return module = {
     //get poll by individual type function, returns a promise
@@ -57,22 +57,38 @@ var extremeProduce = (function(){
     //create a leaderboard of ordered counts/mentions
     _makeLeaderboard : function(cachedResults){
     //clone cachedResults since sort is destructive
-    var tempArr = cachedResults.slice(0);
-    //sort cached array
-    return tempArr.sort(function(a, b){
-      return a.count - b.count;
-      });
+      var tempArr = cachedResults.slice(0);
+      //sort cached array
+      return tempArr.sort(function(a, b){
+        return a.count - b.count;
+        });
     },
 
     //update DOM with 5 largest counts
     _updateDOM : function(leaderboard) {
-    //clear old leaderboard
-    $('body').empty();
-    //append new leaderboard
-    var length = leaderboard.length - 1;
-    for(var i = length; i > length - 5; i--){
-      $('body').append(leaderboard[i].name + " " + leaderboard[i].count + " mentions<br>");
+      //clear old leaderboard
+      $('body').empty();
+      //append new leaderboard
+      var length = leaderboard.length - 1;
+      for(var i = length; i > length - 5; i--){
+        $('body').append(leaderboard[i].name + " " + leaderboard[i].count + " mentions<br>");
+      }
+    },
+
+    //render top 5 to page
+    render : function(){
+      var self = this;
+      //get most recent poll data
+      $.when(this._getCurrentCounts())
+      //generate leaderboard
+      .then(function(counts){
+        console.log("this" + this)
+        return self._makeLeaderboard(counts);
+      })
+      //updateDom
+      .done(function(leaderboard){
+        return self._updateDOM(leaderboard);
+      });
     }
-  };
   }  
 }(jQuery));  
