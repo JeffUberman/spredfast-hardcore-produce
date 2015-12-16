@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
 
@@ -7,16 +7,22 @@
     <title>Hardcore Vegetables</title>
     <meta name="description" content="A leaderboard of the most hardcore vegetables of all time." />
     <meta name="author" content="Spredfast" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <base target="_blank" />
 
     <!-- CSS -->
-    <link href="./css/style.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="./css/normalize.css" />   -->
+    <link rel="stylesheet" href="./css/style.css" />
 
   </head>
   <body>
+    <div id = "container">
+      <h1 id = "title"><span class = "capLetter">H</span>ARDCORE <span class = "capLetter">V</span>EGETABLES</h1>
 
-
+      <ul id = "leaderboard">
+        <li id = 'loading'>Generating Leaderboard...</li>
+      </ul>
+    </div> <!-- End of container -->
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

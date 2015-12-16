@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Fontdiner+Swanky);
+
+body {
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#title {
+  font-family: 'Fontdiner Swanky', cursive;
+  color: rgba(200,200,200,1);
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
+  font-size: 45px;
+  margin: 10% auto 2.5%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.capLetter {
+  font-size: 75px;
+}
+
+#leaderboard {
+  background-color:rgba(26,26,26,0.95);
+  width: 85%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 5px solid silver;
+  padding: 0 2.5%;
+}
+
+
+#leaderboard li {
+  list-style-type: none;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  color: white;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid gray;
+}
+
+#leaderboard li:last-child {
+  border-bottom: none;
+}
+
+.pull-left    { 
+  float: left;
+}
+.pull-right   { 
+  float: right;
+}
+
+.red {
+  color: DarkRed;
+}
+
+.mentions {
+  color: lightGray;
+  font-size: .75em;
+  font-weight: lighter;
+}
+
+#loading {
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+
+  #container {
+    width: 100% !important;
+    margin: 2px;
+  }
+
+  #title, .capLetter {
+    font-size: 25px;
+  }
+
+}

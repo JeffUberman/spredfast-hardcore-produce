@@ -67,11 +67,11 @@ var extremeProduce = (function(){
     //update DOM with 5 largest counts
     _updateDOM : function(leaderboard) {
       //clear old leaderboard
-      $('body').empty();
+      $('#leaderboard').empty();
       //append new leaderboard
       var length = leaderboard.length - 1;
       for(var i = length; i > length - 5; i--){
-        $('body').append(leaderboard[i].name + " " + leaderboard[i].count + " mentions<br>");
+        $('#leaderboard').append("<li class='whole'><span class='pull-left'>" + leaderboard[i].name + "</span><span class='pull-right'><span class='red'>" + leaderboard[i].count + " </span><span class='mentions'>Mentions</span></span><br></li>");
       }
     },
 
