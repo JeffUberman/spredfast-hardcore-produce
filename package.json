@@ -1,0 +1,21 @@
+{
+  "name": "spredfast-dev-test",
+  "version": "1.0.0",
+  "description": "Spredfast Dev Test",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffUberman/spredfast-hardcore-produce.git"
+  },
+  "author": "Jeff Berman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffUberman/spredfast-hardcore-produce/issues"
+  },
+  "homepage": "https://github.com/JeffUberman/spredfast-hardcore-produce#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
