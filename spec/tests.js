@@ -1,4 +1,5 @@
-var expect = chai.expect;
+var expect = chai.expect,
+    testResults;
 
 describe("Hardcore Produce Unit Tests", function(){
   it("can create a new instance of extremeProduce", function(done){
@@ -17,9 +18,18 @@ describe("Hardcore Produce Unit Tests", function(){
   it("can get a poll with both produce types", function(done){
     $.when(extremeProduce._getRecentPoll(function(data){return data}))
       .done(function(data){
+        testResults = data;
         expect(data).to.have.length(20);
         done();
       });
+  });
+
+  it("can get add a new poll's results to historial resuls", function(done){
+  $.when(extremeProduce._getCurrentCounts())
+    .done(function(data){
+      expect(data[0].count).to.not.equal(testResults[0].count);
+      done();
+    });
   });
 
 });

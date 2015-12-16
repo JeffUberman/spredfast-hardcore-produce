@@ -1,5 +1,6 @@
 var extremeProduce = (function(){
   var PollerInstance = new spredfast.Poller();
+  var resultsCache;
 
   return module = {
     //get poll by individual type function, returns a promise
@@ -26,6 +27,30 @@ var extremeProduce = (function(){
       }
       catch (error) {
         console.log("Unable to get recent poll: " + error);
+      }
+    },
+
+    //update counts with cached results object, returns promise
+    _getCurrentCounts : function(){
+      try{
+        var dfd = $.Deferred();
+        this._getRecentPoll(function(results){
+          //check to see if poll results have been previous cached, if not do so
+          if(!resultsCache){
+            resultsCache = results
+          }
+          //if so, update count with new poll results
+          else{
+            for(var i = 0; i < resultsCache.length; i++){
+              resultsCache[i].count+=results[i].count;
+            }
+          }
+          dfd.resolve(resultsCache); 
+        });
+        return dfd.promise(); 
+      }
+      catch(error){
+        console.log("Unable to get current tally: " + error);
       }
     }
   }  
