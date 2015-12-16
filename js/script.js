@@ -62,6 +62,17 @@ var extremeProduce = (function(){
     return tempArr.sort(function(a, b){
       return a.count - b.count;
       });
+    },
+
+    //update DOM with 5 largest counts
+    _updateDOM : function(leaderboard) {
+    //clear old leaderboard
+    $('body').empty();
+    //append new leaderboard
+    var length = leaderboard.length - 1;
+    for(var i = length; i > length - 5; i--){
+      $('body').append(leaderboard[i].name + " " + leaderboard[i].count + " mentions<br>");
     }
+  };
   }  
 }(jQuery));  
